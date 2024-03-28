@@ -1,0 +1,48 @@
+{% extends "base.html" %} {% block title %}Student Attendance System - Students
+{% endblock %}
+{% block nav_title %}Attendance list{% endblock %}
+{% block content %}
+<div>
+
+
+    <div class="mb-3 text-center text-success">
+        <h3 class="">{{msg}}</h3>
+    </div>
+    <!-- <div class="mt-5 mb-4">
+        <a href="/students/new" class="btn btn-success btn-lg" role="button" style="color: white; font-weight: 500;">
+            New student registration
+        </a>
+    </div> -->
+    <table class="table table-striped table-hover" style="font-size: 14pt;">
+        <thead class=" table-light">
+            <tr>
+                <th scope="col" class="text-center">#</th>
+                <th scope="col">Picure</th>
+                <th scope="col">Name</th>
+                <th scope="col">Course</th>
+                <th scope="col">Attendance date & time</th>
+                <th scope="col" class="text-center">Actions</th>
+            </tr>
+        </thead>
+        <tbody class="table-group-divider">
+            {% for attendance in attendance_list %}
+
+            <tr>
+                <td class="align-middle text-center">{{ attendance.id }}</td>
+                <td class="align-middle">
+                    <img src="/assets/faces/{{ attendance.filename}}" height="75" />
+                </td>
+                <td class="align-middle">{{ attendance.name }}</td>
+                <td class="align-middle">{{ attendance.course }}</td>
+                <td class="align-middle">{{ attendance.attendance_time }}</td>
+                <td class="text-center align-middle"> <a href="/attendance/delete/{{attendance.id}}">
+                        <i class="bi bi-trash text-danger" style="font-size: 2rem;"></i>
+                    </a></td>
+            </tr>
+
+            {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

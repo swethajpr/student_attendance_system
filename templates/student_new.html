@@ -1,0 +1,89 @@
+{% extends "base.html" %} {% block title %}New student registration
+{% endblock %}
+{% block nav_title %} New Student Registration{% endblock %}
+{% block content %}
+<div>
+    <!-- <h3 style="color: #ee0979;">New student registration</h3> -->
+    <div class="container">
+        <div style="margin-top: 50px; margin-bottom:50px; color:rgb(194, 45, 127);">
+            <h5>Please provide all the required details for new student registration for attendance
+                system.</h5>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <!-- <div class="card-body"> -->
+                    <form method="post" enctype="multipart/form-data" action="/students/register">
+                        <div class="mb-3">
+                            <!-- <label for="studentName">Name of the student</label> -->
+                            <input type="text" name="name" id="studentName" value="{{ name_value }}"
+                                class="form-control form-control-lg" placeholder="Student name" />
+
+                        </div>
+
+                        <div class=" mb-3">
+                            <select name="course" class="form-select form-select-lg" id="floatingSelect"
+                                aria-label="select the course">
+                                <option value="">Select course</option>
+                                <option value="Accounting">Accounting</option>
+                                <option value="Art">Art</option>
+                                <option value="Biology">Biology</option>
+                                <option value="Chemistry">Chemistry</option>
+                                <option value="Computer Science">Computer Science</option>
+                                <option value="Drama and Theatre">Drama and Theatre</option>
+                                <option value="EPQ">EPQ</option>
+                                <option value="Economics">Economics</option>
+                                <option value="English Literature">English Literature</option>
+                                <option value="Geography">Geography</option>
+                                <option value="History">History</option>
+                                <option value="IELTS">IELTS</option>
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="Music">Music</option>
+                                <option value="Physics">Physics</option>
+                            </select>
+                            <!-- <label for="floatingSelect">Select student course</label> -->
+                        </div>
+
+                        <div class="input-group input-group-lg mb-3">
+                            <label class="input-group-text" for="inputGroupFile01">Picture</label>
+                            <input type="file" name="profile_picture" class="form-control" id="inputGroupFile01"
+                                accept="image/*" onchange="loadFile(event)">
+                        </div>
+
+                        <br />
+                        <div class="mb-3">
+                            <button type="submit" class="btn btn-primary btn-lg">
+                                Save Student Details
+                            </button>
+                            &nbsp;&nbsp;
+                            <button type="button" onclick="cancel(event)" class="btn btn-outline-secondary btn-lg">
+                                Cancel
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="col text-center">
+                    <img id="output" width="65%" class="rounded-pill" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="mt-5 text-center text-danger">
+        <h3 class="">{{ error_message }}</h3>
+    </div>
+</div>
+
+<!-- To display loaded image into user -->
+<script>
+    var loadFile = function (event) {
+        var image = document.getElementById('output');
+        image.src = URL.createObjectURL(event.target.files[0]);
+    };
+
+    var cancel = function (event) {
+        window.location.href = "/students/list";
+    }
+
+</script>
+
+{% endblock %}

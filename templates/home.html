@@ -1,0 +1,67 @@
+{% extends "base.html" %} {% block title %}EPQ Attendance System - Main
+{% endblock %}
+{% block content %}
+
+<style>
+    .flex-width {
+        width: 80%
+    }
+
+    .d-flex>div {
+        margin: 10px;
+    }
+
+    .d-flex {
+        margin: 50px;
+
+    }
+
+    .p-2 {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        border-radius: 20px;
+        width: 200px;
+        height: 200px;
+        padding: 20px;
+        margin: 50px;
+        cursor: pointer;
+        box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+        color: darkgray;
+    }
+
+    .p-2:hover {
+        border: solid black 3px;
+        /*    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;*/
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        color: black;
+
+    }
+
+    .my-heading {
+        color: #ee0979;
+    }
+
+    .bi {
+        font-size: 40px;
+    }
+</style>
+<div class="" style="height: 100vh;  margin-top: -70px; margin-bottom: 50px;">
+    <div class="d-flex align-items-center justify-content-center h-100">
+        <figure class="text-center">
+            <h1 class="my-heading">Welcome to the EPQ Attendance System</h1>
+            <div class="d-flex justify-content-center flex-wrap">
+                <a href="/attendance/list">
+                    <div class="p-2 bg-danger-subtle"><i class="bi bi-person-check" style="font-size: 6rem;"></i></div>
+                </a>
+                <a href="/students/list">
+                    <div class="p-2 bg-warning-subtle"><i class="bi bi-people" style="font-size: 6rem;"></i></div>
+                </a>
+                <!-- <a href="/students/list">
+                    <div class="p-2 bg-info-subtle"><i class="bi bi-gear" style="font-size: 5rem;"></i></div>
+                </a> -->
+            </div>
+    </div>
+</div>
+{% endblock %}
