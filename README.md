@@ -30,7 +30,7 @@ pip install pytz
 
 ### Main program
 
-Use the following command to run the main Student Attendance System to recognize the students face and mark the attendance
+Use the following command to run the main program to recognize the students face and mark the attendance
 
 ```bash
 python main.py
@@ -38,8 +38,10 @@ python main.py
 
 ### Web Frontend
 
-Use the following command to run the web frontend.
+Use the following command to run the website.
 
 ```bash
 uvicorn api:app --reload --reload-include="*.html" --reload-include="*.css" --reload-include="*.js"
 ```
+### ⚠️ Limitation
+The face_recognition API was trained on a predominately western population. This means that accuracy may vary across different ethnic groups.
